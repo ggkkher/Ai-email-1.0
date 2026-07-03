@@ -5,6 +5,7 @@ import { Pool } from 'pg';
 import betriebRoutes from './routes/betriebe.js';
 import projektRoutes from './routes/projekte.js';
 import angebotRoutes from './routes/angebote.js';
+import angeboteAdvancedRoutes from './routes/angebote-advanced.js';
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 app.use('/api/betriebe', betriebRoutes);
 app.use('/api/projekte', projektRoutes);
 app.use('/api/angebote', angebotRoutes);
+app.use('/api/angebote', angeboteAdvancedRoutes);
 
 // Health Check
 app.get('/api/health', (req, res) => {

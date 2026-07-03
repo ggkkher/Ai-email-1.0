@@ -2,14 +2,23 @@
 
 Ein KI-gestütztes SaaS-System für Garten- & Landschaftsbau-Betriebe (GaLaBau) zur automatischen Angebotsgenerierung mit intelligenter Kalkulation.
 
-## 🎯 Features (MVP - Phase 1)
+## 🎯 Features (MVP - Phase 1 + Phase 2)
 
+**Phase 1: MVP**
 - ✅ **Web-Formular** für Projekt-Eingabe
 - ✅ **Intelligente Kalkulations-Engine** für GaLaBau-Leistungen
 - ✅ **PDF-Angebots-Generierung** mit Betrieb-Branding
 - ✅ **Multi-Tenant** (mehrere Betriebe unterstützen)
 - ✅ **REST API** für alle Operationen
 - ✅ **PostgreSQL Datenbank** für Persistierung
+
+**Phase 2: Claude AI Intelligence** 🚀 NEW
+- ✅ **Claude Vision API** für Projektbild-Analyse
+- ✅ **Intelligente Arbeitsleistungs-Schätzung**
+- ✅ **Automatische Angebotsbeschreibung**
+- ✅ **Smart Validierung & Optimierung**
+- ✅ **Auto-generierte Verkaufsargumente**
+- ✅ **Online-Angebots-Links** (interaktiv)
 
 ## 🚀 Quick Start
 
@@ -122,6 +131,7 @@ POST /api/projekte/:id/leistungen
 
 ### Angebote Generierung
 
+**Standard-Angebot (Phase 1)**
 ```bash
 # Angebot generieren (Kalkulation + PDF)
 POST /api/angebote/generate
@@ -133,12 +143,40 @@ POST /api/angebote/generate
     "rustzetZuschlag": 10
   }
 }
+```
 
+**AI-Angebot mit Bildanalyse (Phase 2) 🚀**
+```bash
+# AI-Angebot generieren (Bildanalyse + intelligente Kalkulation)
+POST /api/angebote/ai-generate
+{
+  "projekt_id": "uuid",
+  "betrieb_id": "uuid",
+  "image_base64": "data:image/jpeg;base64,...",
+  "custom_options": {
+    "mitFahrtkosten": true
+  }
+}
+
+# Response includes:
+# - Bildanalyse (Projekttyp, Fläche, Materialien, Schwierigkeitsgrad)
+# - Geschätzte Arbeitsleistung
+# - Auto-generierte Angebotsbeschreibung
+# - Verkaufsargumente
+# - Validierung & Optimierungsvorschläge
+# - Fertige Kalkulation + PDF
+```
+
+**Weitere Endpoints**
+```bash
 # Angebot abrufen
 GET /api/angebote/:id
 
 # Angebote für Betrieb auflisten
 GET /api/angebote/betrieb/:betrieb_id
+
+# Online-Angebots-Link (für Kunde)
+GET /api/angebote/quote/:angebotsnummer
 
 # Angebot-Status aktualisieren
 PATCH /api/angebote/:id/status

@@ -22,7 +22,7 @@
     "puppeteer": "^21.6.1",
     "nodemailer": "^6.9.7",
     "twilio": "^4.10.1",
-    "anthropic": "^0.13.0",
+    "@anthropic-ai/sdk": "^0.21.0",
     "stripe": "^14.10.0"
   },
   "devDependencies": {
