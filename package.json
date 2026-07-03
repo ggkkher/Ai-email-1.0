@@ -20,9 +20,14 @@
     "uuid": "^9.0.1",
     "axios": "^1.6.5",
     "puppeteer": "^21.6.1",
+    "playwright": "^1.40.1",
+    "cheerio": "^1.0.0-rc.12",
     "nodemailer": "^6.9.7",
     "twilio": "^4.10.1",
     "@anthropic-ai/sdk": "^0.21.0",
+    "@sendgrid/mail": "^8.1.0",
+    "redis": "^4.6.11",
+    "node-cron": "^3.0.2",
     "stripe": "^14.10.0"
   },
   "devDependencies": {

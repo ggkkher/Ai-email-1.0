@@ -226,6 +226,90 @@ Argumente sollten:
   }
 
   /**
+   * Generische Claude API Anfrage (für Worker Recruitment u.ä.)
+   */
+  async callClaude(prompt, maxTokens = 1024) {
+    try {
+      const response = await client.messages.create({
+        model: 'claude-3-5-sonnet-20241022',
+        max_tokens: maxTokens,
+        messages: [
+          {
+            role: 'user',
+            content: prompt
+          }
+        ]
+      });
+
+      return response.content[0].text;
+    } catch (err) {
+      console.error('Fehler bei Claude API Aufruf:', err);
+      throw err;
+    }
+  }
+
+  /**
+   * Generiert personalisierte Rekrutierungs-Nachrichten
+   */
+  async generateRecruitmentMessage(candidate, businessName, messageType = 'initial') {
+    try {
+      const templates = {
+        initial: `Generiere eine kurze, freundliche Rekrutierungs-Nachricht für einen Gärtner/Landschaftsbauer:
+Name: ${candidate.name}
+Erfahrung: ${candidate.experience_years} Jahre
+Skills: ${candidate.skills?.join(', ')}
+Firma des Kandidaten: ${candidate.company_name}
+Standort: ${candidate.location}
+Betriebsname: ${businessName}
+
+Die Nachricht sollte:
+- Kurz & prägnant sein (unter 200 Zeichen)
+- Persönlich wirken (nicht template-artig)
+- Konkret auf die Skills eingehen
+- Einen klaren Call-to-Action haben
+- Deutsch sein
+- Für SMS/WhatsApp geeignet
+
+Nur die Nachricht, ohne Anführungszeichen.`,
+
+        followup: `Generiere eine kurze Follow-up Nachricht für einen Handwerker, den wir vor 3 Tagen kontaktiert haben.
+Name: ${candidate.name}
+Ursprüngliche Message hatte keinen Response.
+
+Die Nachricht sollte:
+- Freundlich bleiben
+- Kurz sein (unter 200 Zeichen)
+- Einen guten Grund geben, warum wir nochmal schreiben
+- Konkrete Opportunity erwähnen (aktuell ein großes Projekt)
+- Deutschen sein
+- Für SMS/WhatsApp geeignet
+
+Nur die Nachricht.`,
+
+        interest: `Generiere eine Nachricht für einen Handwerker, der Interesse gezeigt hat.
+Name: ${candidate.name}
+Betriebsname: ${businessName}
+Standort: ${candidate.location}
+
+Die Nachricht sollte:
+- Enthusiastisch sein
+- Konkrete nächste Schritte vorschlagen (Telefonat, Treffen)
+- Kurz sein
+- Deutsch
+- Für SMS/WhatsApp geeignet
+
+Nur die Nachricht.`
+      };
+
+      const prompt = templates[messageType] || templates.initial;
+      return await this.callClaude(prompt, 500);
+    } catch (err) {
+      console.error('Fehler bei Message Generation:', err);
+      return null;
+    }
+  }
+
+  /**
    * Hilfsfunktion: Konvertiert Bild zu Base64
    */
   _getImageData(imagePath) {
