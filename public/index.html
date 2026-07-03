@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Copywriting & Content Automation - KaniaContent</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9fafb;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero .highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 4px solid #fbbf24;
+        }
+
+        .hero .highlight strong {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #fbbf24;
+            color: #1e40af;
+        }
+
+        .btn-primary:hover {
+            background: #f59e0b;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2563eb;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f9ff;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .services .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e40af;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: #2563eb;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 2rem;
+            background: #f9fafb;
+        }
+
+        .pricing .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e40af;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .price-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
+            text-align: center;
+        }
+
+        .price-card.featured {
+            border-color: #2563eb;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15);
+            transform: scale(1.05);
+        }
+
+        .price-card h3 {
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+
+        .price-card .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin: 1rem 0;
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+            color: #666;
+        }
+
+        .price-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .price-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .portfolio .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e40af;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .portfolio-item h3 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-item .type {
+            color: #2563eb;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-item p {
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .stats .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: #f9fafb;
+        }
+
+        .cta-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            color: #1e40af;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .cta-section p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e40af;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .services h2,
+            .pricing h2,
+            .portfolio h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .price-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">📝 KaniaContent</div>
+            <div>
+                <a href="#services">Services</a>
+                <a href="#pricing">Preise</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🚀 Professionelle Email Copywriting & Content</h1>
+            <p class="subtitle">Hochwertige Marketing-Texte, die konvertieren - in 48 Stunden</p>
+
+            <div class="highlight">
+                <strong>€100 - €300 pro Paket</strong>
+                <p>Emails • Sales Pages • Blog Posts • Social Content • Landing Pages</p>
+            </div>
+
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="scrollToContact()">Jetzt anfragen</button>
+                <button class="btn btn-secondary" onclick="scrollToServices()">Services ansehen</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>✨ Was ich anbiete</h2>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">📧</div>
+                    <h3>Email Copywriting</h3>
+                    <p>Professionelle Newsletter, Sales-Sequenzen, Cold Emails die funktionieren. Mit A/B-Testing Vorschlägen.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📄</div>
+                    <h3>Sales Pages</h3>
+                    <p>High-Converting Landing Pages & Sales Copy. Von Headlines bis CTA - alles optimiert für Conversions.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📝</div>
+                    <h3>Blog Posts</h3>
+                    <p>SEO-optimierte Blog-Artikel (800-2000 Wörter). Dein Thema → fertig geschrieben in 48h.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Social Media Content</h3>
+                    <p>LinkedIn Posts, Twitter Threads, Instagram Captions. Mit Hooks & Call-to-Actions die funktionieren.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Content Strategies</h3>
+                    <p>4-Wochen Content Kalender mit Themen, Headlines & Hooks. Dein kompletter Content-Plan.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Rush Service</h3>
+                    <p>Braucht dein Content bis morgen? 24h Turnaround mit +30% Aufschlag. Notfall? Wir helfen!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>💰 Transparente Preise</h2>
+
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Einzel-Paket</h3>
+                    <div class="price">€100</div>
+                    <ul>
+                        <li>1 Email Copy (5-10 Sätze)</li>
+                        <li>Headlines & Subheadings</li>
+                        <li>A/B Varianten</li>
+                        <li>1 Revision</li>
+                        <li>Lieferung: 48h</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="scrollToContact()">Anfragen</button>
+                </div>
+
+                <div class="price-card featured">
+                    <h3>🌟 Standard Package</h3>
+                    <div class="price">€200</div>
+                    <ul>
+                        <li>1 Sales Page (500-800 Wörter)</li>
+                        <li>3-Part Email Sequence</li>
+                        <li>Headlines & Subheadings</li>
+                        <li>2 Revisionen</li>
+                        <li>Lieferung: 48h</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="scrollToContact()">Anfragen</button>
+                </div>
+
+                <div class="price-card">
+                    <h3>Premium Package</h3>
+                    <div class="price">€300</div>
+                    <ul>
+                        <li>1 komplette Sales Funnel</li>
+                        <li>5-Part Email Sequence</li>
+                        <li>Blog Post (1500 Wörter)</li>
+                        <li>3 Revisionen</li>
+                        <li>Lieferung: 72h</li>
+                        <li>Strategy Consultation</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="scrollToContact()">Anfragen</button>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; color: #666;">
+                <strong>Paket-Deals:</strong> 5+ Pakete = 10% Rabatt | 10+ Pakete = 20% Rabatt
+            </p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Zufriedene Kunden</p>
+            </div>
+            <div class="stat-item">
+                <h3>25%+</h3>
+                <p>Durchschn. Conversion Lift</p>
+            </div>
+            <div class="stat-item">
+                <h3>48h</h3>
+                <p>Schnelle Lieferung</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Zufriedenheits-Garantie</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2>🎯 Portfolio Beispiele</h2>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="type">Sales Email Sequence</div>
+                    <h3>"Verliere deine besten Kunden nicht"</h3>
+                    <p>"3-teilige Re-Engagement Kampagne die 32% der inaktiven Kunden zurückbrachte. Client: SaaS Startup"</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="type">Landing Page Copy</div>
+                    <h3>"Premium Coaching Program"</h3>
+                    <p>"High-Converting Sales Page (2.500€ Paket) mit 15% Conversion Rate. 5+ erfolgreiche Launches."</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="type">Blog Post Series</div>
+                    <h3>"SEO Content Strategy"</h3>
+                    <p>"12-teilige Blog Series zu LinkedIn Growth. +5000 monatliche Leser, 200+ Signups/Monat."</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="type">Email Automation</div>
+                    <h3>"Welcome Sequence Design"</h3>
+                    <p>"5-teilige Automation für E-Commerce. €2.000 durchschn. Kundenwert pro Sequence."</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="type">Social Content</div>
+                    <h3>"LinkedIn Growth Content"</h3>
+                    <p>"LinkedIn Thread Serie (10+ Posts). 50.000+ Impressionen, 1.000+ Engagement pro Post."</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="type">Sales Page</div>
+                    <h3>"E-Learning Kurs"</h3>
+                    <p>"Komplette Sales Funnel für Online Kurs. 120 Anmeldungen in 2 Wochen (€500 pro Kurs)."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>🚀 Bereit, deine Conversions zu verdoppeln?</h2>
+            <p>Starte dein Projekt heute noch. Erste Revision in 48 Stunden, Zufriedenheitsgarantie 100%.</p>
+
+            <div style="margin-top: 2rem;">
+                <h3 style="color: #1e40af; margin-bottom: 1rem;">Kontaktiere mich auf:</h3>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://upwork.com" class="btn btn-primary">📌 Upwork</a>
+                    <a href="https://fiverr.com" class="btn btn-primary">📌 Fiverr</a>
+                    <a href="mailto:info@kania-galabau.de" class="btn btn-primary">📧 Email</a>
+                    <a href="https://twitter.com" class="btn btn-primary">𝕏 Twitter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 KaniaContent. Alle Rechte vorbehalten. | <a href="#" style="color: #fbbf24;">Datenschutz</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToServices() {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
