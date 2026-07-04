@@ -34,3 +34,8 @@ Thumbs.db
 # Logs
 logs/
 *.log
+# Generated outputs
+social-output/
+content-output/
+social-schedule.log
+.env.local
