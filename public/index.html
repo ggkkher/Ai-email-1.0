@@ -37,9 +37,17 @@
         }
 
         nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             font-size: 1.5rem;
             font-weight: bold;
             color: #2563eb;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
         }
 
         nav a {
@@ -400,7 +408,22 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">📝 KaniaContent</div>
+            <div class="logo">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Pen/Quill -->
+                    <defs>
+                        <linearGradient id="penGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Main pen body -->
+                    <path d="M 50 10 L 65 50 L 50 90 L 35 50 Z" fill="url(#penGradient)" stroke="#1e40af" stroke-width="2"/>
+                    <!-- Highlight -->
+                    <circle cx="50" cy="45" r="8" fill="#fbbf24" opacity="0.8"/>
+                </svg>
+                KaniaContent
+            </div>
             <div>
                 <a href="#services">Services</a>
                 <a href="#pricing">Preise</a>
@@ -424,6 +447,51 @@
             <div class="cta-buttons">
                 <button class="btn btn-primary" onclick="scrollToContact()">Jetzt anfragen</button>
                 <button class="btn btn-secondary" onclick="scrollToServices()">Services ansehen</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section style="padding: 4rem 2rem; background: white; border-top: 3px solid #2563eb;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: 2rem; color: #1e40af; margin-bottom: 2rem;">Wieso Kunden bei uns kaufen</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div style="padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚡</div>
+                    <h3 style="color: #1e40af; margin-bottom: 0.5rem;">Super schnell</h3>
+                    <p style="color: #666;">48h Lieferung statt Wochen. Perfekt für Last-Minute Kampagnen.</p>
+                </div>
+
+                <div style="padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💰</div>
+                    <h3 style="color: #1e40af; margin-bottom: 0.5rem;">Billig wie nie</h3>
+                    <p style="color: #666;">€100-300 statt €1.000+ bei Agenturen. Freelancer-Preis, Enterprise-Qualität.</p>
+                </div>
+
+                <div style="padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤖</div>
+                    <h3 style="color: #1e40af; margin-bottom: 0.5rem;">AI-powered</h3>
+                    <p style="color: #666;">Claude AI + menschliche Überprüfung = perfekte Qualität ohne Fehler.</p>
+                </div>
+
+                <div style="padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">✅</div>
+                    <h3 style="color: #1e40af; margin-bottom: 0.5rem;">Garantie</h3>
+                    <p style="color: #666;">100% Zufriedenheitsgarantie. Nicht glücklich? Geld zurück. Keine Fragen.</p>
+                </div>
+
+                <div style="padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔄</div>
+                    <h3 style="color: #1e40af; margin-bottom: 0.5rem;">Flexibel</h3>
+                    <p style="color: #666;">Keine Vertragsbindung. 1 Email oder 100 - wir passen uns an.</p>
+                </div>
+
+                <div style="padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📈</div>
+                    <h3 style="color: #1e40af; margin-bottom: 0.5rem;">Konversionsfokus</h3>
+                    <p style="color: #666;">Wir schreiben nicht schön - wir schreiben für Verkäufe. +25% Conversions durchschnittlich.</p>
+                </div>
             </div>
         </div>
     </section>
